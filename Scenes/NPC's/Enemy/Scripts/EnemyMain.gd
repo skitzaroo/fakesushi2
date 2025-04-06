@@ -1,6 +1,6 @@
 extends CharacterBase
 class_name EnemyMain
-
+#CheckGit
 @onready var fsm = $FSM as FiniteStateMachine
 var player_in_range = false
 

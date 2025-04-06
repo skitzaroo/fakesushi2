@@ -281,13 +281,12 @@ _data = {
 &"Walk": SubResource("Animation_wo7cn")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "healthbar", "hit_particles") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("healthbar", "hit_particles") groups=["Player"]]
 top_level = true
 texture_filter = 1
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_y5oq4")
-sprite = NodePath("")
 healthbar = NodePath("Camera2D/ProgressBar")
 health = 200
 hit_particles = NodePath("hit_particle_blood")

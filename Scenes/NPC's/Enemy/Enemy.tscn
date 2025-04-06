@@ -212,13 +212,12 @@ _data = {
 &"Idle": SubResource("Animation_lw05y")
 }
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("attack_node", "chase_node", "sprite", "healthbar", "hit_particles") groups=["Enemy"]]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("attack_node", "chase_node", "healthbar", "hit_particles") groups=["Enemy"]]
 texture_filter = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_db41y")
 attack_node = NodePath("FSM/enemy_attack_state")
 chase_node = NodePath("FSM/enemy_chase_state")
-sprite = NodePath("")
 healthbar = NodePath("ProgressBar")
 health = 75
 flipped_horizontal = true

@@ -16,7 +16,7 @@ var can_exit := false
 	#Global.return_position = Vector2(800, 200)  # ← Where you want him to land on street
 	#Global.came_from_scene = "ItalianRestaurant"
 func _ready():
-	Global.spawn_point_name = "from_start"		#Global.came_from_scene = "ItalianRestaurant"
+	
 	print("Camera is: ", $Camera2D)
 	print("MafiaBoss is alive in this scene.")  # 👈 Add this
 	if has_node("Camera2D"):
@@ -32,7 +32,7 @@ func _ready():
 			can_exit = true
 		else:
 			print("⚠️ Spawn point not found: ", Global.spawn_point_name)
-			global_position = Vector2(200, 200)  # ← safe fallback
+			Global.spawn_point_name = "from_start"		#Global.came_from_scene = "ItalianRestaurant"
 		
 func _physics_process(delta):
 	var input_dir = Vector2(
