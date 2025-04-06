@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://pkermv687355"]
+
+[ext_resource type="Script" uid="uid://c0lpig46genf8" path="res://Scenes/MafiaBoss.gd" id="1_duo51"]
+[ext_resource type="Texture2D" uid="uid://chx86nwypxdp8" path="res://Assets/mafiaman.webp" id="2_duo51"]
+[ext_resource type="Script" uid="uid://bper0u58glte6" path="res://Scenes/camera_2d.gd" id="3_mbccq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8oqd"]
+size = Vector2(209, 302)
+
+[node name="MafiaBoss" type="CharacterBody2D"]
+script = ExtResource("1_duo51")
+metadata/_custom_type_script = "uid://bs3y7w245j2l5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(229, 284)
+texture = ExtResource("2_duo51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(242.5, 311)
+shape = SubResource("RectangleShape2D_t8oqd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+limit_left = -2850
+limit_top = -550
+limit_right = 2850
+limit_bottom = 155
+script = ExtResource("3_mbccq")

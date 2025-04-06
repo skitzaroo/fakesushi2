@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://sk0af8rbko1o"]
+
+[ext_resource type="Texture2D" uid="uid://c62yxqhxmtcrl" path="res://Assets/italianresturant.webp" id="1_v4igs"]
+[ext_resource type="Script" uid="uid://cmcd8xp5wly5l" path="res://Scenes/go_back_trigger.gd" id="3_4maly"]
+[ext_resource type="PackedScene" uid="uid://cdjinkyudtn2e" path="res://Scenes/MafiaBoss2.tscn" id="3_skwij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4maly"]
+size = Vector2(127.5, 151.5)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(579, 326)
+scale = Vector2(1.41011, 0.815655)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v4igs")
+
+[node name="MafiaBoss" parent="." instance=ExtResource("3_skwij")]
+position = Vector2(35.4583, -4.90402)
+scale = Vector2(0.226105, 0.212322)
+
+[node name="Camera2D2" type="Camera2D" parent="MafiaBoss"]
+
+[node name="GoBackTrigger" type="Area2D" parent="."]
+position = Vector2(-43, 267)
+script = ExtResource("3_4maly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoBackTrigger"]
+position = Vector2(42, 58.0001)
+shape = SubResource("RectangleShape2D_4maly")
+
+[node name="from_street" type="Marker2D" parent="."]
+position = Vector2(-2.12749, 315.084)
+
+[connection signal="body_entered" from="GoBackTrigger" to="GoBackTrigger" method="_on_body_entered"]

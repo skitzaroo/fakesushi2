@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfeh3xexwnbow"]
+
+[ext_resource type="Texture2D" uid="uid://chx86nwypxdp8" path="res://Assets/mafiaman.webp" id="2_oylu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8oqd"]
+size = Vector2(209, 302)
+
+[node name="MafiaBigBoss" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(229, 284)
+texture = ExtResource("2_oylu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(242.5, 311)
+shape = SubResource("RectangleShape2D_t8oqd")
