@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var label = $Label
 @export var next_scene : PackedScene
-
+#this game is gay
 func _ready():
 	label.visible = false
 
