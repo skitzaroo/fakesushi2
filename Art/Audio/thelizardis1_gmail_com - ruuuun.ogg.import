@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7b1ny6gslxlc"
+path="res://.godot/imported/thelizardis1_gmail_com - ruuuun.ogg-017994338a79284e66e91f7afc91baea.oggvorbisstr"
+
+[deps]
+
+source_file="res://Art/Audio/thelizardis1_gmail_com - ruuuun.ogg"
+dest_files=["res://.godot/imported/thelizardis1_gmail_com - ruuuun.ogg-017994338a79284e66e91f7afc91baea.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

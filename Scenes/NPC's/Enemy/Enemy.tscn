@@ -230,6 +230,8 @@ scale = Vector2(0.0264236, 0.0391142)
 texture = ExtResource("2_jnymf")
 
 [node name="HitBox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(-21, -15.5)
+scale = Vector2(3.30869, 2.28826)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitBox"]
 position = Vector2(0.5, 1.5)
@@ -277,11 +279,12 @@ script = ExtResource("27_m2jmx")
 animator = NodePath("../../AnimationPlayer")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -14.0
-offset_top = -9.5
-offset_right = -11.0
-offset_bottom = 17.5
+offset_left = -8.0
+offset_top = -9.0
+offset_right = -5.0
+offset_bottom = 18.0
 rotation = -1.57079
+scale = Vector2(0.72, 0.659998)
 theme_override_styles/background = SubResource("StyleBoxFlat_x6b3o")
 theme_override_styles/fill = SubResource("StyleBoxFlat_w435t")
 step = 1.0
