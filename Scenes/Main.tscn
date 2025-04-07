@@ -1,9 +1,10 @@
-[gd_scene load_steps=51 format=3 uid="uid://dr33saln61fwb"]
+[gd_scene load_steps=52 format=3 uid="uid://dr33saln61fwb"]
 
 [ext_resource type="Script" uid="uid://bwc7klb1w51v" path="res://Scripts/main.gd" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://c4s00auhjyy6d" path="res://Assets/map3.png" id="2_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://pkermv687355" path="res://Scenes/MafiaBoss.tscn" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://dbqnoddy2it0b" path="res://Scenes/area_2d.gd" id="3_pbw6q"]
+[ext_resource type="Script" uid="uid://bnb2ck70jps2c" path="res://Scenes/newdoor.gd" id="4_jw32o"]
 [ext_resource type="AudioStream" uid="uid://c7b1ny6gslxlc" path="res://Art/Audio/thelizardis1_gmail_com - ruuuun.ogg" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://bvt7e871e6jeg" path="res://Scenes/NPC's/Enemy/Enemy.tscn" id="6_v1gob"]
 
@@ -352,15 +353,31 @@ position = Vector2(41, 1)
 [node name="from_start" type="Marker2D" parent="."]
 position = Vector2(233, 99)
 
-[node name="ItalianRestaurantTrigger" type="Area2D" parent="."]
-position = Vector2(-213, -85)
-script = ExtResource("3_pbw6q")
+[node name="newdoor" type="Area2D" parent="."]
+position = Vector2(-148, -98)
+script = ExtResource("4_jw32o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItalianRestaurantTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="newdoor"]
 position = Vector2(-21.5, -7.5)
 shape = SubResource("RectangleShape2D_4kpch")
 
-[node name="Label" type="Label" parent="ItalianRestaurantTrigger"]
+[node name="Label" type="Label" parent="newdoor"]
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 118.0
+offset_bottom = 10.0
+scale = Vector2(0.174864, 0.221106)
+text = "Press \"E\" To Enter"
+
+[node name="ItalianRestaurantTrigger2" type="Area2D" parent="."]
+position = Vector2(-213, -85)
+script = ExtResource("3_pbw6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItalianRestaurantTrigger2"]
+position = Vector2(-21.5, -7.5)
+shape = SubResource("RectangleShape2D_4kpch")
+
+[node name="Label" type="Label" parent="ItalianRestaurantTrigger2"]
 offset_left = -20.0
 offset_top = -13.0
 offset_right = 118.0
@@ -370,6 +387,9 @@ text = "Press \"E\" To Enter"
 
 [node name="from_restaurant" type="Marker2D" parent="."]
 position = Vector2(-234, -93)
+
+[node name="from_newdoor" type="Marker2D" parent="."]
+position = Vector2(-168, -106)
 
 [node name="NPCs" type="Node" parent="."]
 
@@ -399,7 +419,8 @@ scale = Vector2(0.88, 0.64)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_jw32o")
-volume_db = -17.829
+volume_db = -21.68
 autoplay = true
 
-[connection signal="body_entered" from="ItalianRestaurantTrigger" to="ItalianRestaurantTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="newdoor" to="newdoor" method="_on_body_entered"]
+[connection signal="body_entered" from="ItalianRestaurantTrigger2" to="ItalianRestaurantTrigger2" method="_on_body_entered"]
