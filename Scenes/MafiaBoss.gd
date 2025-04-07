@@ -23,7 +23,7 @@ func _ready():
 		$Camera2D.make_current()
 	else:
 		print("⚠️ Warning: No Camera2D found on", name)
-
+#CanIseeThisTOO?!?!?!
 	if Global.spawn_point_name != "":
 		var spawn_point = get_tree().current_scene.get_node_or_null(Global.spawn_point_name)
 		if spawn_point:

@@ -376,4 +376,24 @@ position = Vector2(-234, -93)
 position = Vector2(-10, 16)
 scale = Vector2(0.605286, 0.676185)
 
+[node name="Enemy2" parent="NPCs" instance=ExtResource("6_v1gob")]
+position = Vector2(-252, 128)
+scale = Vector2(1.6, 1.32)
+
+[node name="Enemy3" parent="NPCs" instance=ExtResource("6_v1gob")]
+position = Vector2(-258, -12)
+scale = Vector2(1.2, 1.08)
+
+[node name="Enemy4" parent="NPCs" instance=ExtResource("6_v1gob")]
+position = Vector2(-122, -145)
+scale = Vector2(1.28, 1.4)
+
+[node name="Enemy5" parent="NPCs" instance=ExtResource("6_v1gob")]
+position = Vector2(92, -154)
+scale = Vector2(1.12, 1.32)
+
+[node name="Enemy6" parent="NPCs" instance=ExtResource("6_v1gob")]
+position = Vector2(248, 139)
+scale = Vector2(1.4, 1.44)
+
 [connection signal="body_entered" from="ItalianRestaurantTrigger" to="ItalianRestaurantTrigger" method="_on_body_entered"]
