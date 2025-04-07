@@ -373,6 +373,7 @@ position = Vector2(-234, -93)
 [node name="NPCs" type="Node" parent="."]
 
 [node name="Enemy" parent="NPCs" instance=ExtResource("6_v1gob")]
-position = Vector2(-19, -1)
+position = Vector2(-10, 16)
+scale = Vector2(0.605286, 0.676185)
 
 [connection signal="body_entered" from="ItalianRestaurantTrigger" to="ItalianRestaurantTrigger" method="_on_body_entered"]

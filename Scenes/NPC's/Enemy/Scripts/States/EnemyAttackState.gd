@@ -15,7 +15,7 @@ func Enter():
 func _on_hit_box_body_entered(body):
 	if body.is_in_group("Player"):
 		#deal_damage_to_player(body)
-		get_tree().change_scene_to_file("res://Scenes/Levels/MainFloor.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Misc/DeathScreen.tscn")
 
 #Connect and deal damage to the player
 func deal_damage_to_player(player : PlayerMain):
