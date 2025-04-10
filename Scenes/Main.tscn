@@ -339,7 +339,7 @@ shape = SubResource("RectangleShape2D_d8m2u")
 position = Vector2(-211.5, -92.5)
 shape = SubResource("RectangleShape2D_5psol")
 
-[node name="MafiaBoss" parent="." groups=["Player"] instance=ExtResource("3_kln2b")]
+[node name="MafiaBoss" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(224, 94)
 scale = Vector2(0.0380521, 0.020051)
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtg76bc2gm2gj"]
+
+[ext_resource type="Script" uid="uid://c0lpig46genf8" path="res://Scenes/MafiaBoss.gd" id="1_rl5bk"]
+[ext_resource type="Texture2D" uid="uid://chx86nwypxdp8" path="res://Assets/mafiaman.webp" id="2_ty7ei"]
+[ext_resource type="Script" uid="uid://bper0u58glte6" path="res://Scenes/camera_2d.gd" id="3_q7ypd"]
+[ext_resource type="Script" uid="uid://cast13xsxfr0t" path="res://Scripts/FSM/FiniteStateMachine.gd" id="4_08m4f"]
+[ext_resource type="Script" uid="uid://dxggvx4iueyn7" path="res://Scenes/Player/Scripts/States/PlayerIdleState.gd" id="5_wc7cp"]
+[ext_resource type="Script" uid="uid://ii744gowocfg" path="res://Scenes/Player/Scripts/States/PlayerAttackState.gd" id="6_xwflc"]
+[ext_resource type="Script" uid="uid://j3kii7lflh76" path="res://Scripts/AttackData.gd" id="7_utdd2"]
+[ext_resource type="Script" uid="uid://dd8cmwkhkeqep" path="res://Scenes/Player/Scripts/States/PlayerWalkState.gd" id="8_kdptf"]
+[ext_resource type="Script" uid="uid://cx0fx76ppnnks" path="res://Scenes/Player/Scripts/States/PlayerDeathState.gd" id="9_q82b0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8oqd"]
+size = Vector2(209, 302)
+
+[node name="MafiaBoss" type="CharacterBody2D"]
+script = ExtResource("1_rl5bk")
+metadata/_custom_type_script = "uid://bs3y7w245j2l5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(229, 284)
+texture = ExtResource("2_ty7ei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(242.5, 311)
+shape = SubResource("RectangleShape2D_t8oqd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+limit_left = -2850
+limit_top = -550
+limit_right = 2850
+limit_bottom = 155
+script = ExtResource("3_q7ypd")
+
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_08m4f")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="FSM"]
+script = ExtResource("5_wc7cp")
+
+[node name="Attacking" type="Node" parent="FSM" node_paths=PackedStringArray("attacks")]
+script = ExtResource("6_xwflc")
+attacks = [NodePath("PunchAttack"), NodePath("KickAttack")]
+
+[node name="PunchAttack" type="Node" parent="FSM/Attacking"]
+script = ExtResource("7_utdd2")
+anim = "Attack"
+damage = 55
+
+[node name="KickAttack" type="Node" parent="FSM/Attacking"]
+script = ExtResource("7_utdd2")
+anim = "MoonKick"
+damage = 25
+
+[node name="Moving" type="Node" parent="FSM"]
+script = ExtResource("8_kdptf")
+movespeed = 140
+
+[node name="Die" type="Node" parent="FSM"]
+script = ExtResource("9_q82b0")

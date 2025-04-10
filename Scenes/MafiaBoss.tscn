@@ -1,28 +1,216 @@
-[gd_scene load_steps=5 format=3 uid="uid://pkermv687355"]
+[gd_scene load_steps=29 format=3 uid="uid://pkermv687355"]
 
-[ext_resource type="Script" uid="uid://c0lpig46genf8" path="res://Scenes/MafiaBoss.gd" id="1_duo51"]
+[ext_resource type="Script" uid="uid://bs3y7w245j2l5" path="res://Scenes/Player/Scripts/PlayerMain.gd" id="1_dgwue"]
 [ext_resource type="Texture2D" uid="uid://chx86nwypxdp8" path="res://Assets/mafiaman.webp" id="2_duo51"]
 [ext_resource type="Script" uid="uid://bper0u58glte6" path="res://Scenes/camera_2d.gd" id="3_mbccq"]
+[ext_resource type="PackedScene" uid="uid://b82yimbxiflml" path="res://Art/Particles/hit_particles.tscn" id="3_pw06y"]
+[ext_resource type="Script" uid="uid://cast13xsxfr0t" path="res://Scripts/FSM/FiniteStateMachine.gd" id="4_0dup4"]
+[ext_resource type="Script" uid="uid://dxggvx4iueyn7" path="res://Scenes/Player/Scripts/States/PlayerIdleState.gd" id="5_pw06y"]
+[ext_resource type="Script" uid="uid://ii744gowocfg" path="res://Scenes/Player/Scripts/States/PlayerAttackState.gd" id="6_v33we"]
+[ext_resource type="Script" uid="uid://j3kii7lflh76" path="res://Scripts/AttackData.gd" id="7_65ftc"]
+[ext_resource type="Script" uid="uid://dd8cmwkhkeqep" path="res://Scenes/Player/Scripts/States/PlayerWalkState.gd" id="8_dgwue"]
+[ext_resource type="Script" uid="uid://cx0fx76ppnnks" path="res://Scenes/Player/Scripts/States/PlayerDeathState.gd" id="9_ctusc"]
+[ext_resource type="Texture2D" uid="uid://dyb5iqfj3tmwj" path="res://Art/Sprites/light.png" id="10_ctusc"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="11_2muge"]
+[ext_resource type="Script" uid="uid://b8f1arlduhsje" path="res://Scripts/QuestGeneral/QuestTracker.gd" id="12_blpe7"]
+[ext_resource type="LabelSettings" uid="uid://1cnb4418rr7" path="res://Art/Fonts/pixelized_label_large.tres" id="13_ykbbu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8oqd"]
-size = Vector2(209, 302)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uky13"]
+polygon = PackedVector2Array(-2, -13, -8, -13, -10, -11, -10, -2, -4, 2, -4, 10, 5, 10, 5, 2, 10, -1, 10, -10, 8, -13)
 
-[node name="MafiaBoss" type="CharacterBody2D"]
-script = ExtResource("1_duo51")
-metadata/_custom_type_script = "uid://bs3y7w245j2l5"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk4mn"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(229, 284)
-texture = ExtResource("2_duo51")
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkwab"]
+radius = 25.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(242.5, 311)
-shape = SubResource("RectangleShape2D_t8oqd")
+[sub_resource type="CircleShape2D" id="CircleShape2D_7m131"]
+radius = 8.06226
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[sub_resource type="Curve" id="Curve_h7vsg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.71062, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j105i"]
+curve = SubResource("Curve_h7vsg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wrxbo"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 80, 0)
+scale_max = 4.0
+color = Color(0.992157, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_j105i")
+
+[sub_resource type="Animation" id="Animation_jtcnw"]
+resource_name = "Attack"
+length = 0.8
+
+[sub_resource type="Animation" id="Animation_a1dma"]
+resource_name = "Dash"
+length = 0.4
+
+[sub_resource type="Animation" id="Animation_fkgk5"]
+resource_name = "Death"
+length = 0.4
+
+[sub_resource type="Animation" id="Animation_1i780"]
+resource_name = "Idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_7c1ec"]
+resource_name = "MoonKick"
+length = 0.4
+step = 0.05
+
+[sub_resource type="Animation" id="Animation_wo7cn"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtuut"]
+_data = {
+&"Attack": SubResource("Animation_jtcnw"),
+&"Dash": SubResource("Animation_a1dma"),
+&"Death": SubResource("Animation_fkgk5"),
+&"Idle": SubResource("Animation_1i780"),
+&"MoonKick": SubResource("Animation_7c1ec"),
+&"Walk": SubResource("Animation_wo7cn")
+}
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hit_particles") groups=["Player"]]
+top_level = true
+texture_filter = 1
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_dgwue")
+health = 200
+hit_particles = NodePath("hit_particle_blood")
+
+[node name="Camera2D2" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
 limit_left = -2850
 limit_top = -550
 limit_right = 2850
 limit_bottom = 155
 script = ExtResource("3_mbccq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_uky13")
+
+[node name="AnimatedSprite2D" type="CharacterBody2D" parent="."]
+texture_filter = 1
+
+[node name="HitParticles" parent="AnimatedSprite2D" instance=ExtResource("3_pw06y")]
+position = Vector2(15, 5)
+rotation = 0.0
+
+[node name="Hitboxes" type="Node2D" parent="AnimatedSprite2D"]
+
+[node name="Punch_Hitbox" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+
+[node name="hitboxShape" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/Punch_Hitbox"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_wk4mn")
+disabled = true
+
+[node name="Kick_Hitbox" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/Kick_Hitbox"]
+shape = SubResource("CircleShape2D_mkwab")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(279, 286)
+scale = Vector2(1.086, 1.054)
+texture = ExtResource("2_duo51")
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_7m131")
+
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_0dup4")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("animator")]
+script = ExtResource("5_pw06y")
+animator = NodePath("../../AnimationPlayer")
+
+[node name="Attacking" type="Node" parent="FSM" node_paths=PackedStringArray("animator", "attacks")]
+script = ExtResource("6_v33we")
+animator = NodePath("../../AnimationPlayer")
+attacks = [NodePath("PunchAttack"), NodePath("KickAttack")]
+
+[node name="PunchAttack" type="Node" parent="FSM/Attacking"]
+script = ExtResource("7_65ftc")
+anim = "Attack"
+damage = 55
+
+[node name="KickAttack" type="Node" parent="FSM/Attacking"]
+script = ExtResource("7_65ftc")
+anim = "MoonKick"
+damage = 25
+
+[node name="Moving" type="Node" parent="FSM" node_paths=PackedStringArray("animator")]
+script = ExtResource("8_dgwue")
+movespeed = 140
+animator = NodePath("../../AnimationPlayer")
+
+[node name="Die" type="Node" parent="FSM" node_paths=PackedStringArray("animator")]
+script = ExtResource("9_ctusc")
+animator = NodePath("../../AnimationPlayer")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(285, 262)
+energy = 0.3
+shadow_enabled = true
+texture = ExtResource("10_ctusc")
+
+[node name="hit_particle_blood" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wrxbo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gtuut")
+}
+
+[node name="QuestTracker" type="Node2D" parent="." node_paths=PackedStringArray("quest_info", "quest_announcement")]
+script = ExtResource("12_blpe7")
+quest_info = NodePath("QuestText")
+quest_announcement = NodePath("QuestAnnounceText")
+
+[node name="QuestText" type="Label" parent="QuestTracker"]
+offset_left = -303.0
+offset_top = -166.0
+offset_right = -151.0
+offset_bottom = -137.0
+label_settings = ExtResource("11_2muge")
+
+[node name="QuestAnnounceText" type="Label" parent="QuestTracker"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = -98.0
+offset_right = 64.0
+offset_bottom = -72.0
+grow_horizontal = 2
+text = "announcement"
+label_settings = ExtResource("13_ykbbu")
+horizontal_alignment = 1
+uppercase = true
+
+[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/Punch_Hitbox" to="FSM/Attacking" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/Kick_Hitbox" to="FSM/Attacking" method="_on_hitbox_body_entered"]
