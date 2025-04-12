@@ -23,7 +23,7 @@
 
 [node name="Area2D" parent="Scene" instance=ExtResource("5_wxx7c")]
 position = Vector2(154, -48)
-line1 = ["HELP!", "SAVE ME!", "!?!?!"]
+line1 = Array[String](["HELP!", "SAVE ME!", "!?!?!"])
 
 [node name="PointLight2D" type="PointLight2D" parent="Scene"]
 position = Vector2(45, 102)

@@ -35,7 +35,7 @@ position = Vector2(83, 260)
 
 [node name="NPC2" parent="NPCs" instance=ExtResource("8_30ow3")]
 position = Vector2(-108, 104)
-line1 = ["Hello! Everything is fine! Nothing to see here! "]
+line1 = Array[String](["Hello! Everything is fine! Nothing to see here! "])
 
 [node name="Pickups" type="Node" parent="."]
 
