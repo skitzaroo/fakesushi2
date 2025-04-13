@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://bvg5dny32iw0x"]
+[gd_scene load_steps=31 format=3 uid="uid://bvg5dny32iw0x"]
 
 [ext_resource type="Script" uid="uid://bs3y7w245j2l5" path="res://Scenes/Player/Scripts/PlayerMain.gd" id="1_y5oq4"]
 [ext_resource type="Texture2D" uid="uid://chx86nwypxdp8" path="res://Assets/mafiaman.webp" id="3_epg6k"]
+[ext_resource type="AudioStream" uid="uid://ddf6k0p6gukj8" path="res://Scenes/Player/Sprite/concrete-footsteps-6752.mp3" id="14_0u84n"]
 [ext_resource type="Script" uid="uid://cast13xsxfr0t" path="res://Scripts/FSM/FiniteStateMachine.gd" id="21_54cjv"]
 [ext_resource type="PackedScene" uid="uid://b82yimbxiflml" path="res://Art/Particles/hit_particles.tscn" id="21_gooki"]
 [ext_resource type="Script" uid="uid://dxggvx4iueyn7" path="res://Scenes/Player/Scripts/States/PlayerIdleState.gd" id="26_28u22"]
@@ -128,7 +129,9 @@ disabled = true
 scale = Vector2(0.102888, 0.142432)
 texture = ExtResource("3_epg6k")
 
-[node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
+[node name="interact_area" type="Area2D" parent="."]
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="interact_area"]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_7m131")
 
@@ -234,6 +237,9 @@ text = "announcement"
 label_settings = ExtResource("34_aqkdi")
 horizontal_alignment = 1
 uppercase = true
+
+[node name="footsteps_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_0u84n")
 
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/Punch_Hitbox" to="FSM/Attacking" method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/Kick_Hitbox" to="FSM/Attacking" method="_on_hitbox_body_entered"]
