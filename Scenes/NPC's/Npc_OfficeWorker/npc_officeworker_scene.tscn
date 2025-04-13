@@ -34,6 +34,8 @@ line1 = Array[String](["Hello!", "Welcome!", "They don't pay me enough for this"
 shape = SubResource("CircleShape2D_t56sl")
 
 [node name="NPC" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.43051e-06, -2)
+scale = Vector2(0.53125, 0.40625)
 sprite_frames = SubResource("SpriteFrames_l6yr8")
 autoplay = "default"
 frame = 1
