@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://sk0af8rbko1o"]
+[gd_scene load_steps=6 format=3 uid="uid://sk0af8rbko1o"]
 
 [ext_resource type="Texture2D" uid="uid://c62yxqhxmtcrl" path="res://Assets/italianresturant.webp" id="1_v4igs"]
 [ext_resource type="Script" uid="uid://cmcd8xp5wly5l" path="res://Scenes/go_back_trigger.gd" id="3_4maly"]
+[ext_resource type="Script" uid="uid://bs3y7w245j2l5" path="res://Scenes/Player/Scripts/PlayerMain.gd" id="3_n80iu"]
 [ext_resource type="PackedScene" uid="uid://cdjinkyudtn2e" path="res://Scenes/MafiaBoss2.tscn" id="3_skwij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4maly"]
@@ -17,6 +18,7 @@ texture = ExtResource("1_v4igs")
 [node name="MafiaBoss" parent="." instance=ExtResource("3_skwij")]
 position = Vector2(35.4583, -4.90402)
 scale = Vector2(0.226105, 0.212322)
+script = ExtResource("3_n80iu")
 
 [node name="Camera2D2" type="Camera2D" parent="MafiaBoss"]
 

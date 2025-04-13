@@ -54,7 +54,7 @@ func after_damage_iframes():
 	tween.tween_property(self, "modulate", Color.RED, 0.1)
 	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
 	await tween.finished
-	invincible = false
+	invincible = true
 	print("[DEBUG] Character invincibility ended.")
 
 # Main damage handler

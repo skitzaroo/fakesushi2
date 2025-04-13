@@ -17,7 +17,11 @@ var pause_menu_instance: CanvasLayer = null
 var can_exit := false
 var last_interact_time := -1.0  # For cooldown timing
 
+
 func _ready():
+	
+	if Engine.is_editor_hint(): return  # Optional: disable in editor
+	print("📍", global_position.round())
 	print("🟢 [PlayerMain] Ready.")
 
 	if camera:
@@ -28,11 +32,10 @@ func _ready():
 	else:
 		print("⚠️ [PlayerMain] No Camera2D found!")
 
-	if Global.spawn_point_name != "":
-		var spawn_point = get_tree().current_scene.get_node_or_null(Global.spawn_point_name)
+	if Global.spawn_point != Vector2(224.0, 94.0):
+		var spawn_point = Vector2(-242.4735, -83.94291)
 		if spawn_point:
-			global_position = spawn_point.global_position
-			print("📍 [PlayerMain] Spawned at:", global_position)
+			print("📍 [PlayerMain] Spawned at:", Vector2(-242.4735, -83.94291))
 			await get_tree().create_timer(0.5).timeout
 			can_exit = true
 			print("✅ [PlayerMain] Player can now exit.")
@@ -102,8 +105,10 @@ func _physics_process(delta):
 		velocity = input_dir.normalized() * SPEED
 	else:
 		velocity = Vector2.ZERO
-
+	#print("📍 Player Position:", global_position)
 	move_and_slide()
+	
+	
 
 
 

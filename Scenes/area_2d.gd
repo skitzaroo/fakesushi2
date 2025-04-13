@@ -15,9 +15,7 @@ func _process(_delta):
 func _on_body_entered(body):
 	print("ENTERED:", body.name)  # ✅ Debug this
 	if body.name == "MafiaBoss":
-		Global.spawn_point_name = "from_street"
-		get_tree().change_scene_to_file("res://Scenes/ItalianRestaurant.tscn")
-
+		GameManager.load_next_level(preload("res://Scenes/ItalianRestaurant.tscn"))
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		label.visible = false
