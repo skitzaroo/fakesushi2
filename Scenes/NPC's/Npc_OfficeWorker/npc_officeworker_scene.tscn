@@ -28,12 +28,14 @@ radius = 13.0
 [node name="NPC" type="Area2D" node_paths=PackedStringArray("speech")]
 script = ExtResource("3_xaw3v")
 speech = NodePath("NPC/CenterContainer/Label")
-line1 = ["Hello!", "Welcome!", "They don't pay me enough for this"]
+line1 = Array[String](["Hello!", "Welcome!", "They don't pay me enough for this"])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("CircleShape2D_t56sl")
 
 [node name="NPC" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.43051e-06, -2)
+scale = Vector2(0.53125, 0.40625)
 sprite_frames = SubResource("SpriteFrames_l6yr8")
 autoplay = "default"
 frame = 1

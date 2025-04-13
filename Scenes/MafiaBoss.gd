@@ -1,5 +1,4 @@
-extends CharacterBody2D
-#extends CharacterBase
+extends CharacterBase
 #class_name PlayerMain
 
 @onready var fsm = $FSM as FiniteStateMachine

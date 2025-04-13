@@ -1,36 +1,48 @@
 extends Area2D
 
-#TextBubble
+# 💬 Text Bubble System
 var talking = false
-@export var speech : Label
-@export var line1 = []
 
-@export var show_text_duration : float = 1.0
-@export var silence_duration : float = 1.0
+@export var speech: Label
+@export var line1: Array[String]
 
-#NOTE Displays the text above an NPC and removes it after a slight delay
+@export var show_text_duration: float = 1.0
+@export var silence_duration: float = 1.0
+
+# 🧾 Contract will be assigned by GameManager
+var contract
 
 func _ready():
 	speech.text = ""
 
-#region Signal Entering & Exiting
-
 func _on_body_entered(body):
-		if body.is_in_group("Player") and not talking:
-			talk_tween()
-			speech.text = line1[randi() % line1.size()]
+	if body.is_in_group("Player") and not talking:
+		talk_tween()
+
+		var line = ""
+
+		# Get a random flavor line if one exists
+		if line1.size() > 0:
+			line = line1[randi() % line1.size()]
+
+		# Append contract flavor and execute it
+		if contract != null:
+			line += "\n" + contract.flavor_text
+			GameManager.execute_contract(contract)
+			contract = null  # 🔁 Prevent repeat execution
+
+		# Set the full dialog
+		speech.text = line
+		talking = true
 
 func _on_body_exited(body):
 	if body.is_in_group("Player") and talking:
-		await get_tree().create_timer(show_text_duration).timeout #Show the text for a short while after the player leaves
+		await get_tree().create_timer(show_text_duration).timeout
 		speech.text = "*murmur*"
-		await get_tree().create_timer(silence_duration).timeout #Show "murmur" for a short while before going silent
+		await get_tree().create_timer(silence_duration).timeout
 		speech.text = ""
 		talking = false
-		
-#endregion
 
-#Animate the NPC talking with some simple tweening
 func talk_tween():
 	talking = true
 	var tween = create_tween()
