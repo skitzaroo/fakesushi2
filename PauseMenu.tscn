@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxytouww7q3lf"]
+
+[ext_resource type="Texture2D" uid="uid://d2y61b62d7qam" path="res://Scenes/pause menu.PNG" id="1_nov15"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(576.985, 336.607)
+scale = Vector2(2.16387, 2.51961)
+texture = ExtResource("1_nov15")

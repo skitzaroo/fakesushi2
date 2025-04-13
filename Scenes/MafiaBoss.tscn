@@ -84,14 +84,12 @@ _data = {
 &"Walk": SubResource("Animation_wo7cn")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hit_particles") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 top_level = true
 texture_filter = 1
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_dgwue")
-health = 200
-hit_particles = NodePath("hit_particle_blood")
 
 [node name="Camera2D2" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)

@@ -5,6 +5,7 @@ extends Node2D
 @onready var spawner = preload("res://Scripts/Spawner.gd").new()
 
 func _ready():
+	GameManager.assign_contracts_to_npcs()
 	#add_child(spawner)
 	await get_tree().process_frame  # Wait one frame to ensure all nodes are ready
 	spawner.setup(spawn_point)
