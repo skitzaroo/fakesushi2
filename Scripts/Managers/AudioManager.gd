@@ -9,6 +9,9 @@ const BLOODY_HIT = preload("res://Art/Audio/thelizardis1_gmail_com - gun.ogg")
 const COIN_PICK = preload("res://Art/Audio/Effects/coin_pick.ogg")
 const QUEST_SOUND = preload("res://Art/Audio/Effects/QuestSound.ogg")
 const FootstepsAudio = preload("res://Scenes/Player/Sprite/concrete-footsteps-6752.mp3")
+#const PAUSE_SFX = 
+#const UNPAUSE_SFX = 
+
 
 #endregion
 
@@ -23,7 +26,13 @@ func _ready() -> void:
 # Play a sound. Call this function from anywhere
 # Arguments: (audio_clip, offset, volume)
 # Example: AudioManager.play_sound(AudioManager.PLAYER_ATTACK_SWING, 0.25, 1)
-func play_sound(audiostream : AudioStreamOggVorbis, offset : float, volume : float):
+
+
+# Change this:
+# func play_sound(audiostream: AudioStreamOggVorbis, offset: float, volume: float):
+
+# To this:
+func play_sound(audiostream: AudioStream, offset: float, volume: float):
 	#print("[DEBUG] Request to play sound received.")
 	var available_player = null
 

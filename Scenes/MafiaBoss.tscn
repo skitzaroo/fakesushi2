@@ -92,11 +92,8 @@ floor_block_on_wall = false
 script = ExtResource("1_dgwue")
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+ignore_rotation = false
 zoom = Vector2(6, 6)
-limit_left = -2850
-limit_top = -550
-limit_right = 2850
-limit_bottom = 155
 script = ExtResource("3_mbccq")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

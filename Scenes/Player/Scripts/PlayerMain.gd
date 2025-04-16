@@ -1,9 +1,13 @@
 extends CharacterBase
 class_name PlayerMain
 
-const SPEED = 120.0
+const SPEED = -90
 const DEATH_SCREEN = preload("res://Scenes/Misc/DeathScreen.tscn")
 const INTERACT_COOLDOWN = 0.6
+
+#const PAUSE_SFX = AudioManager.PAUSE_SFX
+#const UNPAUSE_SFX = AudioManager.UNPAUSE_SFX
+
 
 const PAUSE_MENU_SCENE = preload("res://PauseMenu.tscn") # 👈 Adjust path if needed
 
@@ -86,16 +90,11 @@ func _unhandled_input(event):
 			
 
 	elif event.is_action_pressed("pause_menu_toggle"):
-		_toggle_menu(event)
-		if menu_open:
-			return  # ❌ No interaction while "paused"
-
+		_toggle_menu()
 
 
 
 func _physics_process(delta):
-	if menu_open:
-		return  # ❌ Skip movement while "paused"
 	var input_dir = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -112,20 +111,19 @@ func _physics_process(delta):
 
 
 
-func _toggle_menu(event):
+func _toggle_menu():
 	if menu_open:
 		get_tree().paused = false
+#		AudioManager.play_sound(UNPAUSE_SFX, -0000.0, 0.0)
 		print("📕 Closing pause menu")
 		if pause_menu_instance:
 			pause_menu_instance.queue_free()
 			pause_menu_instance = null
 		menu_open = false
 	else:
+#		AudioManager.play_sound(PAUSE_SFX, 0.0, 0.0)
 		print("📖 Opening pause menu")
 		pause_menu_instance = PAUSE_MENU_SCENE.instantiate()
 		get_tree().current_scene.add_child(pause_menu_instance)
-		#get_tree().paused = true
+		get_tree().paused = true
 		menu_open = true
-		if menu_open:
-			return  # ❌ No interaction while "paused"
-		

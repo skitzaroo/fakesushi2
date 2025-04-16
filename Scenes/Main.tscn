@@ -1,7 +1,7 @@
 [gd_scene load_steps=53 format=3 uid="uid://dr33saln61fwb"]
 
 [ext_resource type="Script" uid="uid://bwc7klb1w51v" path="res://Scripts/main.gd" id="1_r150o"]
-[ext_resource type="Texture2D" uid="uid://c4s00auhjyy6d" path="res://Assets/map3.png" id="2_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://c54ewc5lufc56" path="res://Scenes/Player/Sprite/bfm.png" id="2_50glp"]
 [ext_resource type="PackedScene" uid="uid://pkermv687355" path="res://Scenes/MafiaBoss.tscn" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://dbqnoddy2it0b" path="res://Scenes/area_2d.gd" id="3_pbw6q"]
 [ext_resource type="Script" uid="uid://bnb2ck70jps2c" path="res://Scenes/newdoor.gd" id="4_jw32o"]
@@ -148,48 +148,48 @@ script = ExtResource("1_r150o")
 [node name="MapColliders" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="MapColliders"]
-position = Vector2(1, -2)
+position = Vector2(161, 280)
 scale = Vector2(0.555273, 0.310007)
-texture = ExtResource("2_rgh2o")
+texture = ExtResource("2_50glp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-237.75, -124.25)
+position = Vector2(-461, -183)
 shape = SubResource("RectangleShape2D_pbw6q")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-172.5, -127)
+position = Vector2(-294, -194)
 scale = Vector2(0.555273, 0.310007)
 shape = SubResource("RectangleShape2D_rgh2o")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-54, -126)
+position = Vector2(-123, -194)
 shape = SubResource("RectangleShape2D_v1gob")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(140.5, -115.5)
+position = Vector2(250, -190)
 shape = SubResource("RectangleShape2D_jw32o")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(248.5, -122.5)
+position = Vector2(67, -370)
 shape = SubResource("RectangleShape2D_50glp")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(252.5, -18)
+position = Vector2(515, -110)
 shape = SubResource("RectangleShape2D_vy5pj")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(150, -55)
+position = Vector2(399, -127)
 rotation = -1.56791
 shape = SubResource("CapsuleShape2D_bmxlf")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-45, -57)
+position = Vector2(71, -88)
 rotation = 1.56496
 scale = Vector2(2.90485, 1.64558)
 shape = SubResource("CapsuleShape2D_4kpch")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-210.5, -49)
+position = Vector2(-270, -77)
 shape = SubResource("RectangleShape2D_grg3l")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="MapColliders"]
@@ -197,7 +197,7 @@ position = Vector2(-220, 15.5)
 shape = SubResource("RectangleShape2D_frkhe")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-159.5, 15.5)
+position = Vector2(-259, 99)
 shape = SubResource("RectangleShape2D_1p5hy")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="MapColliders"]
@@ -205,31 +205,31 @@ position = Vector2(268, -82)
 shape = SubResource("RectangleShape2D_h1m7h")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-285, -3)
+position = Vector2(-953, 50)
 shape = SubResource("RectangleShape2D_erwvk")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-2, 167)
+position = Vector2(7, 775)
 shape = SubResource("RectangleShape2D_2w5on")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(296, 4)
+position = Vector2(1337, 69)
 shape = SubResource("RectangleShape2D_346fj")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-1, -162)
+position = Vector2(76, -519)
 shape = SubResource("RectangleShape2D_0sclb")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(149.75, -3.5)
+position = Vector2(536, -151)
 shape = SubResource("RectangleShape2D_sxkr1")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(135.5, 17)
+position = Vector2(-648, 214)
 shape = SubResource("RectangleShape2D_fq0cl")
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(174, 46)
+position = Vector2(531, 34)
 shape = SubResource("RectangleShape2D_hwpts")
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="MapColliders"]
@@ -237,23 +237,23 @@ position = Vector2(166.5, 70)
 shape = SubResource("RectangleShape2D_jyqft")
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(166, 122.5)
+position = Vector2(576, -394)
 shape = SubResource("RectangleShape2D_3tgeq")
 
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(113.5, 135)
+position = Vector2(892, -147)
 shape = SubResource("RectangleShape2D_c4ay3")
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(58.5, 147.5)
+position = Vector2(265, 179)
 shape = SubResource("RectangleShape2D_aht7i")
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-37.5, 147)
+position = Vector2(-115, 222)
 shape = SubResource("RectangleShape2D_5jffn")
 
 [node name="CollisionShape2D25" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(31.5, 123)
+position = Vector2(354, 245)
 shape = SubResource("RectangleShape2D_kpo4j")
 
 [node name="CollisionShape2D26" type="CollisionShape2D" parent="MapColliders"]
@@ -265,15 +265,15 @@ position = Vector2(260.5, 124.5)
 shape = SubResource("RectangleShape2D_c5snn")
 
 [node name="CollisionShape2D28" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-133.5, 145.5)
+position = Vector2(-86, 161)
 shape = SubResource("RectangleShape2D_xvtyr")
 
 [node name="CollisionShape2D29" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-167, 83.5)
+position = Vector2(-224, 87)
 shape = SubResource("RectangleShape2D_u7mjy")
 
 [node name="CollisionShape2D30" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-130.5, 81.5)
+position = Vector2(-246, 96)
 shape = SubResource("RectangleShape2D_4yxf6")
 
 [node name="CollisionShape2D31" type="CollisionShape2D" parent="MapColliders"]
@@ -285,15 +285,15 @@ position = Vector2(-32, 117.5)
 shape = SubResource("RectangleShape2D_x3rx7")
 
 [node name="CollisionShape2D33" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-14, 74)
+position = Vector2(66, -32)
 shape = SubResource("RectangleShape2D_6heos")
 
 [node name="CollisionShape2D34" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(39, 62)
+position = Vector2(-178, 232)
 shape = SubResource("RectangleShape2D_vvnwx")
 
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-172, 115.5)
+position = Vector2(-220, 118)
 shape = SubResource("RectangleShape2D_btbly")
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="MapColliders"]
@@ -313,7 +313,7 @@ position = Vector2(-88, -69)
 shape = SubResource("RectangleShape2D_vs04g")
 
 [node name="CollisionShape2D40" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-12, -91.75)
+position = Vector2(71, -113)
 shape = SubResource("RectangleShape2D_6ehlx")
 
 [node name="CollisionShape2D41" type="CollisionShape2D" parent="MapColliders"]
@@ -321,11 +321,11 @@ position = Vector2(-103, -32)
 shape = SubResource("RectangleShape2D_utia5")
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-36, -4)
+position = Vector2(-65, 59)
 shape = SubResource("RectangleShape2D_f7hdo")
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-50, -26.5)
+position = Vector2(-304, -48)
 shape = SubResource("RectangleShape2D_clvyn")
 
 [node name="CollisionShape2D44" type="CollisionShape2D" parent="MapColliders"]
@@ -395,27 +395,27 @@ position = Vector2(-168, -106)
 [node name="NPCs" type="Node" parent="."]
 
 [node name="Enemy" parent="NPCs" instance=ExtResource("6_v1gob")]
-position = Vector2(-10, 16)
+position = Vector2(-892, -625)
 scale = Vector2(0.605286, 0.676185)
 
 [node name="Enemy2" parent="NPCs" instance=ExtResource("6_v1gob")]
-position = Vector2(-252, 128)
+position = Vector2(1417, 907)
 scale = Vector2(1.6, 1.32)
 
 [node name="Enemy3" parent="NPCs" instance=ExtResource("6_v1gob")]
-position = Vector2(-258, -12)
+position = Vector2(1434, -660)
 scale = Vector2(1.2, 1.08)
 
 [node name="Enemy4" parent="NPCs" instance=ExtResource("6_v1gob")]
-position = Vector2(-122, -145)
+position = Vector2(457, 1429)
 scale = Vector2(1.28, 1.4)
 
 [node name="Enemy5" parent="NPCs" instance=ExtResource("6_v1gob")]
-position = Vector2(92, -154)
+position = Vector2(933, 2234)
 scale = Vector2(1.12, 1.32)
 
 [node name="Enemy6" parent="NPCs" instance=ExtResource("6_v1gob")]
-position = Vector2(248, 139)
+position = Vector2(25, -559)
 scale = Vector2(0.88, 0.64)
 
 [node name="NPC" parent="NPCs" instance=ExtResource("7_50glp")]
