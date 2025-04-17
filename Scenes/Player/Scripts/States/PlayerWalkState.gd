@@ -17,9 +17,9 @@ func Enter():
 func Update(delta : float):
 	var input_dir = Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown").normalized()
 	Move(input_dir)
-	print("📦 input_dir: ", input_dir)
-	print("Right:", Input.is_action_pressed("MoveRight"))
-	print("Down:", Input.is_action_pressed("MoveDown"))
+	#print("📦 input_dir: ", input_dir)
+	#print("Right:", Input.is_action_pressed("MoveRight"))
+	#print("Down:", Input.is_action_pressed("MoveDown"))
 
 	LessenDash(delta)
 
