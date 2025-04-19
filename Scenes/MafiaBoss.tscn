@@ -94,6 +94,10 @@ script = ExtResource("1_dgwue")
 [node name="Camera2D2" type="Camera2D" parent="."]
 ignore_rotation = false
 zoom = Vector2(6, 6)
+limit_left = -977
+limit_top = 448
+limit_right = 69
+limit_bottom = 913
 script = ExtResource("3_mbccq")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

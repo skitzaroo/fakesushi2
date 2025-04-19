@@ -578,7 +578,7 @@ position = Vector2(111, 54)
 shape = SubResource("RectangleShape2D_vs04g")
 
 [node name="MafiaBoss" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(224, 94)
+position = Vector2(-86, 607)
 scale = Vector2(0.0380521, 0.020051)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -589,7 +589,7 @@ position = Vector2(41, 1)
 [node name="SpawnTimer" type="Timer" parent="CanvasLayer/SpawnPoint"]
 
 [node name="from_start" type="Marker2D" parent="."]
-position = Vector2(233, 99)
+position = Vector2(-79, 608)
 
 [node name="newdoor" type="Area2D" parent="."]
 position = Vector2(-148, -98)
