@@ -61,10 +61,10 @@ size = Vector2(34, 26)
 size = Vector2(392, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w5on"]
-size = Vector2(20.25, 328.5)
+size = Vector2(464.125, 973.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_346fj"]
-size = Vector2(712, 25)
+size = Vector2(1676, 157.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sclb"]
 size = Vector2(465, 37)
@@ -94,7 +94,7 @@ size = Vector2(485.5, 19)
 size = Vector2(48, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpo4j"]
-size = Vector2(249.5, 66)
+size = Vector2(306, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4n42c"]
 size = Vector2(183, 67)
@@ -103,7 +103,7 @@ size = Vector2(183, 67)
 size = Vector2(53, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvtyr"]
-size = Vector2(209, 159)
+size = Vector2(93, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7mjy"]
 size = Vector2(30, 23)
@@ -121,7 +121,7 @@ size = Vector2(31, 13)
 size = Vector2(159, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvnwx"]
-size = Vector2(305.25, 77)
+size = Vector2(119.313, 128.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btbly"]
 size = Vector2(35, 16)
@@ -182,7 +182,7 @@ size = Vector2(64.8329, 32.2573)
 size = Vector2(37.8192, 103.223)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kpch"]
-size = Vector2(786.75, 21.5)
+size = Vector2(2548.38, 1026.75)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_r150o")
@@ -223,7 +223,7 @@ position = Vector2(-640.125, -145)
 shape = SubResource("RectangleShape2D_pbw6q")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-665.25, 63.5)
+position = Vector2(-439, 825)
 scale = Vector2(0.555273, 0.310007)
 shape = SubResource("RectangleShape2D_rgh2o")
 
@@ -286,7 +286,7 @@ position = Vector2(-470, -284.75)
 shape = SubResource("RectangleShape2D_frkhe")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-291.75, 71.5)
+position = Vector2(-221, 817)
 shape = SubResource("RectangleShape2D_1p5hy")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="MapColliders"]
@@ -298,11 +298,11 @@ position = Vector2(-781, -51)
 shape = SubResource("RectangleShape2D_erwvk")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(594.875, 544.75)
+position = Vector2(-1206.94, 574.375)
 shape = SubResource("RectangleShape2D_2w5on")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(941, 696.5)
+position = Vector2(-205, 979.25)
 shape = SubResource("RectangleShape2D_346fj")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="MapColliders"]
@@ -314,7 +314,7 @@ position = Vector2(544.125, -274.375)
 shape = SubResource("RectangleShape2D_sxkr1")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-682.5, 361)
+position = Vector2(-666, 828)
 shape = SubResource("RectangleShape2D_fq0cl")
 
 [node name="CollisionShape2D47" type="CollisionShape2D" parent="MapColliders"]
@@ -346,7 +346,7 @@ position = Vector2(-381, 316)
 shape = SubResource("RectangleShape2D_5jffn")
 
 [node name="CollisionShape2D25" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(447.25, 155)
+position = Vector2(-659, 531)
 shape = SubResource("RectangleShape2D_kpo4j")
 
 [node name="CollisionShape2D26" type="CollisionShape2D" parent="MapColliders"]
@@ -358,7 +358,7 @@ position = Vector2(280, 338)
 shape = SubResource("RectangleShape2D_c5snn")
 
 [node name="CollisionShape2D28" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-317.5, 229.5)
+position = Vector2(-88, 690)
 shape = SubResource("RectangleShape2D_xvtyr")
 
 [node name="CollisionShape2D29" type="CollisionShape2D" parent="MapColliders"]
@@ -370,7 +370,7 @@ position = Vector2(-498, -71)
 shape = SubResource("RectangleShape2D_4yxf6")
 
 [node name="CollisionShape2D31" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-364.5, 88)
+position = Vector2(-197, 520)
 shape = SubResource("RectangleShape2D_qta6b")
 
 [node name="CollisionShape2D32" type="CollisionShape2D" parent="MapColliders"]
@@ -382,11 +382,11 @@ position = Vector2(-150.5, -37)
 shape = SubResource("RectangleShape2D_6heos")
 
 [node name="CollisionShape2D34" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(-256.625, 365)
+position = Vector2(-207, 667)
 shape = SubResource("RectangleShape2D_vvnwx")
 
 [node name="CollisionShape2D49" type="CollisionShape2D" parent="MapColliders"]
-position = Vector2(318, 523)
+position = Vector2(-707.344, 688)
 shape = SubResource("RectangleShape2D_vvnwx")
 
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="MapColliders"]
@@ -596,7 +596,7 @@ position = Vector2(-148, -98)
 script = ExtResource("4_jw32o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="newdoor"]
-position = Vector2(-432, -242)
+position = Vector2(1519, 774)
 shape = SubResource("RectangleShape2D_4kpch")
 
 [node name="Label" type="Label" parent="newdoor"]
@@ -612,7 +612,7 @@ position = Vector2(-213, -85)
 script = ExtResource("3_pbw6q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItalianRestaurantTrigger2"]
-position = Vector2(-367.375, -252.75)
+position = Vector2(491.813, 13.375)
 shape = SubResource("RectangleShape2D_4kpch")
 
 [node name="Label" type="Label" parent="ItalianRestaurantTrigger2"]
