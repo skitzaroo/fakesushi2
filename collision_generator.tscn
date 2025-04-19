@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://da0cbbojwj6bw"]
+
+[ext_resource type="Script" uid="uid://c71i5osn0pnd1" path="res://collision_generator.gd" id="1_qe2qu"]
+[ext_resource type="Texture2D" uid="uid://c54ewc5lufc56" path="res://Scenes/Player/Sprite/bfm.png" id="2_3cdnq"]
+[ext_resource type="PackedScene" uid="uid://pkermv687355" path="res://Scenes/MafiaBoss.tscn" id="3_3cdnq"]
+
+[node name="CollisionGenerator" type="Node2D"]
+script = ExtResource("1_qe2qu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3cdnq")
+
+[node name="MafiaBoss" parent="." instance=ExtResource("3_3cdnq")]
+position = Vector2(-234, 51)
+scale = Vector2(0.0380521, 0.020051)
